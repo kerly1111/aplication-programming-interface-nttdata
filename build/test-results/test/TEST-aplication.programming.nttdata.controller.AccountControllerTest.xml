@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="aplication.programming.nttdata.controller.AccountControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-07-10T21:51:29" hostname="DESKTOP-92IF89P" time="0.249">
+  <properties/>
+  <testcase name="create()" classname="aplication.programming.nttdata.controller.AccountControllerTest" time="0.24"/>
+  <testcase name="delete()" classname="aplication.programming.nttdata.controller.AccountControllerTest" time="0.002"/>
+  <testcase name="update()" classname="aplication.programming.nttdata.controller.AccountControllerTest" time="0.001"/>
+  <testcase name="allAccount()" classname="aplication.programming.nttdata.controller.AccountControllerTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
