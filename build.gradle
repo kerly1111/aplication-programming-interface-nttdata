@@ -1,0 +1,60 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
+}
+
+group = 'aplication.programming.nttdata'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.0'
+	implementation 'com.querydsl:querydsl-jpa:5.0.0'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mockito:mockito-core:2.1.0'
+	implementation 'com.google.guava:guava:31.1-jre'
+}
+
+// querydsl
+querydsl {
+	library = 'com.querydsl:querydsl-apt:5.0.0'
+	jpa = true
+}
+
+compileQuerydsl{
+	options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+	querydsl.extendsFrom implementation, compileClasspath
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java','src/querydsl/java']
+		}
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
